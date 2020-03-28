@@ -1,0 +1,77 @@
+,Codice zona,id,Regione,Tipo zona,classificazione,superamento VL ,max media annuale (mg/m3)
+0,IT0118,1,Piemonte,Agglomerato,aboveUAT,Sì,29
+1,IT0119,1,Piemonte,Pianura,aboveUAT,No,24
+2,IT0120,1,Piemonte,Collina,aboveUAT,No,22
+3,IT0121,1,Piemonte,montagna,LAT-UAT,No,19
+4,IT0204,2,Valle d'Aosta,VdA_fondo_valle,LAT-UAT,No,13
+5,IT0205,2,Valle d'Aosta,VdA_rurale montano,belowLAT,No,11
+6,IT0306,3,Lombardia,Agglomerato di Milano,aboveUAT,Sì,29
+7,IT0307,3,Lombardia,Agglomerato di Bergamo,aboveUAT,Sì,27
+8,IT0308,3,Lombardia,Agglomerato di Brescia,aboveUAT,Sì,28
+9,IT0309,3,Lombardia,Zona A- Pianura ad elevata urbanizzazione,aboveUAT,Sì,27
+10,IT0310,3,Lombardia,Zona B - Pianura,aboveUAT,Sì,28
+11,IT0311,3,Lombardia,Zona C - Montagna,aboveUAT,No,12
+12,IT0312,3,Lombardia,Zona D- Fondovalle,aboveUAT,No,24
+13,IT0403,42,P.A. Trento,fondovalle,aboveUAT,No,18
+14,IT0404,42,P.A. Trento,montagna,belowLAT,No,3
+15,IT0445,41,P.A. Bolzano,South Tyrol,belowLAT,No,14
+16,IT0508,5,Veneto,Agglomerato_Venezia,aboveUAT,Sì,27
+17,IT0509,5,Veneto,Agglomerato_Treviso,aboveUAT,No,24
+18,IT0510,5,Veneto,Agglomerato_Padova,aboveUAT,Sì,30
+19,IT0511,5,Veneto,Agglomerato_Vicenza,aboveUAT,No,24
+20,IT0512,5,Veneto,Agglomerato_Verona,aboveUAT,No,22
+21,IT0513,5,Veneto,Pianura_Capoluogo_Bassa_Pianura,aboveUAT,No,24
+22,IT0514,5,Veneto,Bassa_Pianura_Colli,aboveUAT,No,23
+23,IT0515,5,Veneto,Prealpi_Alpi,belowLAT,No,16
+24,IT0516,5,Veneto,Val_Belluna,aboveUAT,No,20
+25,IT0607,6,Friuli Venezia Giulia,Zona triestina,aboveUAT,No,15
+26,IT0608,6,Friuli Venezia Giulia,Zona di pianura,aboveUAT,No,18
+27,IT0609,6,Friuli Venezia Giulia,Zona di montagna,belowLAT,No,10
+28,IT0711,7,Liguria,Agglomerato Genova,aboveUAT,No,21
+29,IT0712,7,Liguria,Savonese - Bormida,aboveUAT,No,17
+30,IT0713,7,Liguria,Spezzino,LAT-UAT,No,15
+31,IT0714,7,Liguria,Costa alta pressione antropica,aboveUAT,No,11
+32,IT0715,7,Liguria,Entroterra alta pressione antropica,aboveUAT,No,21
+33,IT0716,7,Liguria,Entroterra e costa bassa pressione antropica,belowLAT,No,11
+34,IT0890,8,Emilia Romagna,Agglomerato,LAT-UAT,No,19
+35,IT0891,8,Emilia Romagna,Appennino,belowLAT,No,5
+36,IT0892,8,Emilia Romagna,Pianura Ovest,aboveUAT,No,22
+37,IT0893,8,Emilia Romagna,Pianura Est,aboveUAT,No,18
+38,IT0906,9,Toscana,Agglomerato di Firenze,aboveUAT,No,17
+39,IT0907,9,Toscana,Zona Prato Pistoia,aboveUAT,No,21
+40,IT0908,9,Toscana,Zona Costiera,LAT-UAT,No,17
+41,IT0909,9,Toscana,Zona Valdarno pisano e pianura lucchese,LAT-UAT,No,21
+42,IT0910,9,Toscana,Zona valdarno aretino e valdichiana,LAT-UAT,No,20
+43,IT0911,9,Toscana,Zona collinare e montana,aboveUAT,No,19
+44,IT1006,10,Umbria,Zona collinare e montuosa,belowLAT,No,14
+45,IT1007,10,Umbria,Zona di valle,aboveUAT,No,21
+46,IT1008,10,Umbria,Zona della Conca Ternana,aboveUAT,Sì,27
+47,IT1110,11,Marche,Zona Costiera e Valliva,aboveUAT,No,18
+48,IT1111,11,Marche,Zona Collinare Montana,belowLAT,No,8
+49,IT1211,12,Lazio,Zona Appenninica,LAT-UAT,No,15
+50,IT1212,12,Lazio,Zona Valle del Sacco,aboveUAT,Sì,27
+51,IT1213,12,Lazio,Zona Litoranea,LAT-UAT,No,13
+52,IT1215,12,Lazio,Zona Agglomerato di Roma,aboveUAT,No,18
+53,IT1305,13,Abruzzo,Agglomerato di Pescara - Chieti,aboveUAT,No,18
+54,IT1306,13,Abruzzo,Zona a maggiore pressione antropica,aboveUAT,No,11
+55,IT1307,13,Abruzzo,Zona a minore pressione antropica,aboveUAT,No,9
+56,IT1402,14,Molise,Area collinare,aboveUAT,No,5
+57,IT1403,14,Molise,Pianura,aboveUAT,Sì,26
+58,IT1404,14,Molise,Fascia costiera,aboveUAT,No,11
+59,IT1507,15,Campania,Agglomerato Napoli_Caserta,aboveUAT,No,24
+60,IT1508,15,Campania,Zona costiera_collinare ,aboveUAT,Sì,36
+61,IT1509,15,Campania,Zona montuosa,belowLAT,No,14
+62,IT1611,16,Puglia,Collinare,LAT-UAT,No,16
+63,IT1612,16,Puglia,Pianura,LAT-UAT,No,16
+64,IT1613,16,Puglia,Industriale,LAT-UAT,No,21
+65,IT1614,16,Puglia,Agglomerato di Bari,LAT-UAT,No,16
+66,IT1801,18,Calabria,A - urbana,belowLAT,No,13
+67,IT1802,18,Calabria,B - industriale,belowLAT,No,16
+68,IT1803,18,Calabria,C - montana,LAT-UAT,No,21
+69,IT1804,18,Calabria,D - colline e costa,aboveUAT,No,16
+70,IT1914,19,Sicilia,Aree Industriali,LAT-UAT,No,16
+71,IT2007,20,Sardegna,Agglomerato di Cagliari,LAT-UAT,No,14
+72,IT2008,20,Sardegna,Zona Urbana,LAT-UAT,No,6
+73,IT2009,20,Sardegna,Zona Industriale,LAT-UAT,No,15
+74,IT2010,20,Sardegna,Zona Rurale,belowLAT,No,6
+75,Not Important,17,Basilicata,Rurale,Not Important,No,10
