@@ -1,5 +1,15 @@
 # Introduzione
 
+
+
+###### Premetto che questa analisi va intesa come un semplice esercizio di manipolazione di dati, più che come uno studio di qualsivoglia utilità.
+
+
+
+***
+
+
+
 Con il seguente documento si vuole analizzare l'andamento della pandemia COVID-19 in territorio italiano, attingendo dai dati che la rete fornisce ad oggi, 26-Marzo-2020.
 
 Le fasi che analizzerò saranno le seguenti:
@@ -108,12 +118,139 @@ Le operazioni riguardante questa fase saranno raccolti in un file ipynb ([data_c
 
 ### Data exploration & Feature Engineering
 
-L'obiettivo di questa fase è raggruppare i dati in un'unica tabella su cui effettuare le analisi nella fase successiva.
+L'obiettivo di questa fase è capire che valori posso utilizzare e nel caso creare nuovi dati relazionando vari valori, unendo tutto in una tabella dove è possibile.
 
 Per quanto riguarda i dati sul COVID manterrò solo il numero dei deceduti, in quanto il numero dei contagiati non è attendibile. Infatti non sono stati fatti tamponi a tappeto su tutta la popolazione, pertanto il numero dei contagiati reale è sconosciuto. Inoltre la presenza di persone che sono totalmente asintomatiche rende l'analisi ancora più complicata.
+
+Anche il valore che riguarda il numero degli ospedalizzati è difficile da utilizzare, in quanto il numero di posti disponibile negli ospedali è un dato difficile da recuperare e non è sempre proporzionale al numero di abitanti.
+Per queste ragioni non considererò neanche questo valore. 
 
 Il numero di morti per regione sarà messo in relazione al numero di abitanti, in un'analisi successiva inserirò anche la densità di popolazione per regione.
 
 Aggiungerò anche la colonna relativa all'inquinamento dell'aria e l'etichetta relativa al superamento del limite consentito per legge. Se una regione contiene più di un dato, i dati verranno raggruppati e verrà presa la mediana.
 
 Le operazioni riguardante questa fase saranno raccolti in un file ipynb ([making_main_table.ipynb](making_main_table.ipynb)) nella directory principale.
+
+### Conclusioni relativa all'esplorazione dei dati
+
+![](Images/Tabella riepilogativa.png)
+
+Queste due tabelle riepilogano i dati su cui andrò a realizzare le analisi iniziali e che riepilogherò in alcuni grafici. 
+
+Si può notare che la Lombardia è in vetta ad entrambe le liste: quella relativa ai morti in percentuale, ai morti assoluti e l'altra relativa all'inquinamento (il dato dell'inquinamente si riferisce al 50°percentile).
+
+I dati forniti dalla Protezione Civile si dividono in due grandi dataset:
+
+* uno che contiene lo storico per regione dei casi accertati, degli ospedalizzati, ricoverati, terapia intensiva, isolamento e dei deceduti
+* uno che contiene lo storico per provincia che, al contrario del precedente, non è così dettagliato e ha solamente lo storico del numero dei casi accertati per provincia.
+
+Saranno analizzati il numero dei deceduti per le motivazioni espresse precedentemente per ora non considererò i dati provinciali.
+
+***
+
+I grafici successivi rappresentano l'evoluzione di 6 regioni, la Lombardia è stata l'apripista, assieme all'Emilia Romagna, del caso italiano , ed è stata anche la regione che ha subito il numero maggiore di casi e di perdite fino ad ora.
+
+Inizialmente in Lombardia sono state adottate misure restrittive che dopo qualche settimana sono state estese al resto dell'Italia. L'aspetto centrale rimane la differenza di evoluzione tra questa regione e le altre, dobbiamo ricordare che:
+
+* il giorno della comunicazione della chiusura dei confini lombardi ci fu un esodo di persone, che si spostarono dalla Lombardia alle altre regioni d'Italia, nonostante questo spostamento non ci fu una diffusione o un aumento dei casi in maniera esponenziale, come ci si aspettava dopo questo comportamento;
+* diverse regioni non hanno rispettato in maniera rigida le misure governative e tuttavia non c'è stata una diffusione quantomeno pari a quella avvenuta in Lombardia.
+
+Questi due punti fanno ipotizzare che in questa regione ci sia uno o più fattori che rendono il virus particolarmente pericoloso.
+
+![](Images/Progression_main_provinces.png)
+
+Il **<u>dati del grafico seguente sono stati proporzionati in base alla popolazione</u>** delle singole regioni.
+
+![](Images/Death-population.png)
+
+Da questo primo grafico si possono iniziare ad ipotizzare indicativamente 3 gruppi:
+
+* Lombardia
+* Emilia Romagna, Marche, Valle d'Aosta, Liguria, P.A. Trento, Piemonte
+* Il resto dell'Italia
+
+L'aspetto di maggior risalto è quello indicato dalla freccia rossa, i primi casi appaiono nello stesso momento in Lombardia ed Emilia (Codogno e i paesi limitrofi si trovano al confine delle due regioni), tuttavia in Lombardia ha avuto una diffusione importante,  mentre in Emilia rimane molto più contenuta.
+
+Si procede con lo studio delle correlazione tra inquinamento e decessi. Ho affiancato un heatmap con un semplice scatterplot per avere una visione più chiara dei dei due grafici.
+
+![](Images/Heatmap.png)
+
+Per quanto riguarda <u>decessi e inquinamente</u> il valore di correlazione è di <u>0.54</u>, che può considerarsi moderatamente correlato, ovviamente va ricordato che la ["correlazione non implica la causa"](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation), in altre parole: non è detto che sia la causa ma potrebbe essere uno dei fattori predisponenti, o una concausa, che rende ancora più deleteria la patologia. Altri dati utili per avere un quadro migliore potrebbero essere:
+
+* la **densità di popolazione**, possibilmente suddivisa per fasce anagrafiche;
+* l'**età dei deceduti**;
+* **un indice che esprima la capacità di risposta sanitaria delle città/regioni** (ie numero di posti letto in terapia intensiva, raggiungibilità dei pazienti da parte dei soccorsi e del servizio sanitario)
+
+Dati che per ora non sono in grado di ottenere.
+
+Bisogna prendere atto che <u>l'indice di inquinamento è relativo all'intera regione</u>, infatti le stazioni di campionamento sono spesso sparse su tutto il territorio. Questo implica che l'inquinamento di comuni molto popolati, è spesso compensato da altri scarsamente popolati dove il tasso di inquinamento rientra sotto la soglia. Questo aspetto non da lo stesso peso all'influenza che l'inquinamento dei grandi centri ha sulla popolazione e sullo stato di salute generale.
+
+
+
+|                  | Population | Air Pollution |
+| ---------------- | ---------- | ------------- |
+| città1           | 1.000.000  | 100           |
+| città2           | 1.000      | 10            |
+| città3           | 1.000      | 10            |
+| media aritmetica |            | 40            |
+| media ponderata  |            | 99.8          |
+
+$$
+Media\ Ponderata = \frac {\sum Wx}{\sum W}
+$$
+
+Appena possibile proverò ariformulare i dati regionali con una media ponderata tra popolazione e inquinamento.
+
+I grafici successivi sono relativi  alle tabelle pivot costruite sui deceduti ed espressi tramite clusterplot. Ho utilizzato due serie di dati uno NON proporzionato alla popolazione e uno PROPORZIONATO alla popolazione. Inoltre ho realizzato un grafico normalizzato e uno non normalizzato.
+
+![](Images/Clustermap-noProp.png)
+
+Da questi due grafici si nota poco la differenziazione tra i vari gruppi, l'unica regione che risalta è sempre la Lombardia.
+
+Le cose cambiano leggeremente proporzionando i dati.
+
+![](Images/Clustermap-Prop.png)
+
+(Per vedere le immagini più in dettaglio consultare il file making_main_table.ipynb nella directory principale)
+
+I dati proporzionati risultano, a mio parere, più visibili, dalla clustermap si delineano la presenza di tre gruppi principali:
+
+- Lombardia
+- Marche, Liguria, Valle d'Aosta, Piemonte, Trentino Alto Adige, Emilia Romagna e Veneto
+- le restanti regioni italiane tale suddivisione si può notare anche dall'andamento delle linee dei decessi nel grafico accanto, anche meno chiaro.
+
+Per ora per i dati visualizzati non mostrano una relazione evidente tra inquinamento e morte per polmonite interstiziale da Coronavirus, tuttavia ricordiamo che la regione Lombardia, <u>l'unica con un valore superiore a quelli consetiti dalla legge</u>, è la regione che ha subito il maggior numero di decessi attribuiti all'azione del virus.
+
+***
+
+Seguono dei grafici geoplot per avere una visione forse più chiara dei dati. Utilizzerò due librerie differenti con approcci diversi, da una parte geopandas e dall'altra ipyleaflet
+
+![](Images/RegioniGeoPlot.png)
+
+I primi due grafici sono rappresentati con una legenda cromatica semplicemente basata sui valori, negli altri due i dati vengono suddivisi in 5 classi tramite il classificatore Box Plot (o "Box and wiskers plot"), che combina i valori minimo e massimo (e quindi l'intervallo) con i quartili per evidenziare l'indice di dispersione dei valori
+
+------
+
+Eseguirò la stessa cosa anche per le provincie, il database non ha numeri riguardanti i decessi per provincia e dovrò utilizzare il valore relativo al totale dei casi. Le problematiche sono quelle discusse all'inizio: sono dei dati molto relativi, come quelli dei contagiati, e sopratutto in questo caso non ci sono neanche indicazioni relative al numero di posti letto per provincia. Quindi rappresenterò il totale dei casi indicato in relazione all'inquinamento dell'aria per provincia.
+
+![](Images/TabProvincie.png)
+
+In questo caso mi mancano i dati relativi alla densità demografica provinciale, un valore che messo in rapporto all'indice di inquinamento, potrebbe esprimere il peso che l'inquinamento esprime sul territorio e sulla gente che lo abita.
+
+![](Images/Confronto inquinamento province.png)
+
+Ho inserito anche il valore dell'inquinamento del 75° percentile, per avere una dimensione del range di inquinamento, ricordiamo che il valore limite annuale da raggiungere entro il 1 gennaio 2015 era fissato a 25 µg/m3, mentre entro il 1 gennaio 2020 il valore era stato fissato a 20 µg/m3. (secondo il D.Lgs.  155/2010, ricordo la relazione del [ministero dell'ambiente](http://www.salute.gov.it/imgs/C_17_paginaRelazione_1438_listaFile_itemName_2_file.pdf))
+
+![](Images/Prov-plain.png)
+
+Anche in questo caso i questi primi tre grafici sono rappresentati con una legenda cromatica semplicemente basata sui valori, nei seguenti i dati vengono suddivisi dal classificatore Box Plot.
+
+![](Images/Prov-boxplot.png)
+
+![](Images/ipyleaflet-italy.png)
+
+Infine quest'ultimo grafico realizzato con il modulo ipyleaflet ho dato un peso all'indice di inquinamento moltiplicandolo con la popolazione regionale, in attesa di ottenere i dati provinciali.
+
+I dati sono relativamente pochi e incompleti, e l'epidemia non è ancora conclusa quindi non si può ancora capire se lo sviluppo avvenuto in Lombardia si replicherà nel resto dell'Italia.
+
+La fase successiva, può permettere di delineare dei modelli per tentare di riconoscere il tipo di sviluppo della patologia nelle varie regioni.
