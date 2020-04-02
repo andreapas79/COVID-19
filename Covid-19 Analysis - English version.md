@@ -73,8 +73,6 @@ Viral agent that aggressively attacks the respiratory system, causing within a c
 
 #### Conclusions
 
-#### Conclusions
-
 The goal of this analysis will be:
 
 * analyze the progress of the pandemic;
@@ -82,6 +80,8 @@ The goal of this analysis will be:
 * find correlations between air pollution and the death rate from interstitial pneumonia caused by COVID-19 in regions of Italy alone.
 
 The model found can be applied to data from other individual states, so that protocols do not distort the results.
+
+# Data acquisition
 
 #### The data on COVID19
 
